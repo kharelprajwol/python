@@ -1,6 +1,6 @@
 Days 1-10: System Design Foundations
 
-1.	Introduction to System Design [a relative link](1_introduction).md)
+1.	Introduction to System Design [a relative link](1_introduction.md)
 	Overview of system design, why it's important, common challenges.
 
 2.	Scalability Basics
