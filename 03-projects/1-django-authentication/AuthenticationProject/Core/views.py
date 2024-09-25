@@ -9,4 +9,13 @@ from django.utils import timezone
 from django.urls import reverse
 from .models import *
 
+def Home(request):
+    return render(request, "index.html")
+
+def RegisterView(request):
+    return render(request, "register.html")
+
+def LoginView(request):
+    return render(request, "login.html")
+
 
