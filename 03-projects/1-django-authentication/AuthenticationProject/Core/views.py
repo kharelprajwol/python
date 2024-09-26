@@ -94,7 +94,7 @@ def ForgotPassword(request):
             email_message.fail_silently = True
             email_message.send()
 
-            return redirect("password-reset-sent")
+            return redirect("password-reset-sent", reset_id = new_password_reset.reset_id)
 
         except User.DoesNotExist:
             messages.error(request, f"No user with email {email} found")
@@ -103,7 +103,13 @@ def ForgotPassword(request):
     return render(request, "forgot_password.html")
 
 def PasswordResetSent(request, reset_id):
-    return render(request,"password_reset_sent.html")
+
+    if PasswordReset.objects.filter(reset_id=reset_id).exists():
+        return render(request, 'password_reset_sent.html')
+    else:
+        # redirect to forgot password page if code does not exist
+        messages.error(request, 'Invalid reset id')
+        return redirect('forgot-password')
 
 def ResetPassword(request, reset_id):
     return render(request, "reset_password")
