@@ -1,0 +1,1 @@
+Simple webapp with registration, login, logout and reset password features using django default authentication
